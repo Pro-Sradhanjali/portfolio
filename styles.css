@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Dancing Script', sans-serif;
+}
+
+body {
+    background-color: #fbece1;
+    color:#4a4a4a;
+}
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('pose-3.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.8rem;
+    color: #d1cece;
+}
+/* Image Styling and Integration */
+.image-wrapper {
+    margin: 30px 0;
+    width: 80%;
+    max-width: 600px; /* Matches text width */
+    overflow: hidden;
+    position: relative;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.5); /* Soft background for blending */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.interactive-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Section Styles */
+.section {
+    padding: 5rem 3rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333333;
+}
+
+.image-scroller {
+    display: flex;
+    overflow-x: auto;
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.scroller-item {
+    width: 70%;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.scroller-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.scroller-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.scroller-item img:active {
+    transform: scale(1.02);
+}
+
+.scroller-item p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #bbb;
+}
+
+.video-section {
+    position: relative;
+    margin-top: 3rem;
+}
+
+.portfolio-video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-video:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-video:active {
+    transform: scale(1.02);
+}
+
+.video-description {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #333333;
+    cursor: pointer;
+}
+
+/* Video Section */
+.video-section {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.video-container {
+    position: relative;
+    display: inline-block;
+}
+
+.portfolio-video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-video:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.portfolio-video:active {
+    transform: scale(1.02);
+}
+
+/* Hover Text Over Video */
+.video-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.5rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    pointer-events: none; /* Ensure text doesn’t block interaction */
+    transition: opacity 0.3s ease;
+}
+
+.video-container:hover .video-overlay {
+    opacity: 1;
+}
+
+/* Video Description Text */
+.video-description {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #333333;
+    cursor: pointer;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: #fbece1;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    font-size: 1.5rem;
+    color: #000000;
+    cursor: pointer;
+}
+
+
+/* Contact Section */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    color: #4a4a4a;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: transform 0.3s;
+}
+
+.social-link img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+    color: #333333;
+}
+
+footer {
+    padding: 2rem;
+    text-align: center;
+    background-color: #222;
+    color: #fff;
+}
+
+/* Navbar Styles */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background-color:transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+nav .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #333333; /* Optional: Border for better visibility */
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 3rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #5c4033;
+    font-size: 1rem;
+    font-weight: bolder;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #333333;
+}
+
+/* Responsive Hamburger Menu */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #4a4a4a;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    nav ul {
+        display: none;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+
+    #nav-links.active {
+        display: block;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #fbece1;
+        padding: 1rem 0;
+        text-align: center;
+    }
+
+    #nav-links li {
+        margin: 1.5rem 0;
+    }
+
+    #nav-links li a {
+        color: #5c4033;
+        font-size: 1.2rem;
+    }
+}
+
